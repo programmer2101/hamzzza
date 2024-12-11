@@ -1,0 +1,411 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap");
+* {
+  font-family: "DynaPuff", system-ui;
+}
+
+body {
+  background-color: rgb(159, 159, 159);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.hidden {
+  display: none !important;
+}
+
+.main {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.topimg {
+  background-image: url(../assets/img/top-img.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50%;
+  z-index: -500;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.bottomimg {
+  background-image: url(../assets/img/bottom-img.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50%;
+  z-index: -500;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.content {
+  position: relative;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+.get-title {
+  font-family: "DynaPuff", system-ui;
+  font-weight: 100;
+  text-align: center;
+}
+
+.numb {
+  text-align: center;
+  font-family: "DynaPuff", system-ui;
+  font-weight: 100;
+  font-size: 25px;
+  color: rgb(5, 90, 5);
+}
+.wincount {
+  color: rgb(5, 90, 5);
+}
+
+.btn-claim {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px 5px 1px black;
+  background-color: #f6ef6a;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: "DynaPuff", system-ui;
+  font-weight: 100;
+  text-decoration: none;
+}
+.btn-claim:hover {
+  background-color: #be8a30;
+  color: white;
+  box-shadow: 1px 1px 5px 1px #faf683;
+}
+.second-wrapper {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.content-second {
+  position: relative;
+  width: 80%;
+  height: 150px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  box-shadow: 1px 1px 40px 5px black;
+  padding: 10px;
+  border-radius: 10px;
+  gap: 5px;
+  transition: 0.4s;
+  animation: zoom 1s;
+  background: rgb(150, 147, 204);
+  background: linear-gradient(
+    90deg,
+    rgba(150, 147, 204, 0.30015756302521013) 0%,
+    rgba(9, 121, 105, 0.22172619047619047) 35%,
+    rgba(101, 231, 205, 1) 100%
+  );
+}
+.content-second input {
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: solid 2px rgb(91, 91, 91);
+}
+
+.second-wrapper-title {
+  text-align: center;
+  margin: 0px;
+  margin-top: -80px;
+  padding: 0px;
+}
+
+.cardlogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visa {
+  width: 50px;
+}
+.master {
+  width: 50px;
+}
+.inputform {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.buttonwrapper {
+  position: absolute;
+  top: 220px;
+  z-index: 400;
+}
+.accept {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px 5px 1px black;
+  background-color: #f6ef6a;
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: "DynaPuff", system-ui;
+  font-weight: 100;
+  text-decoration: none;
+}
+.accept:hover {
+  background-color: #be8a30;
+  color: white;
+  box-shadow: 1px 1px 5px 1px #faf683;
+}
+
+.cardnumbertitle {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  left: 20px;
+  top: 60px;
+  font-size: 10px;
+}
+.cardholdertitle {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  left: 20px;
+  top: 110px;
+  font-size: 10px;
+}
+.carddatawrapper {
+  position: relative;
+  width: 50%;
+  padding-top: 20px;
+  top: -10px;
+}
+.cardccvwrapper {
+  position: relative;
+  width: 25%;
+  padding-top: 20px;
+  top: -10px;
+}
+.carddatetitle {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  top: 2px;
+  left: 10px;
+  font-size: 10px;
+}
+.cardccvtitle {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  left: 10px;
+  top: 2px;
+  font-size: 10px;
+}
+
+.footercards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cardnumber {
+  width: 90%;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 30px;
+}
+.cardname {
+  width: 60%;
+  font-size: 14px;
+  text-align: center;
+}
+
+.carddata {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+.cardcvv {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+
+@keyframes zoom {
+  from {
+    /* transform: translateX(400px); */
+    /* transform: scale(0); */
+    opacity: 0;
+  }
+  to {
+    /* transform: translateX(0px); */
+    /* transform: scale(1); */
+    opacity: 1;
+  }
+}
+
+.leftscrolcontent {
+  transition: 0.4s;
+  animation: leftscrool 1s;
+}
+
+@keyframes leftscrool {
+  from {
+    transform: translateX(0px);
+    /* transform: scale(1); */
+  }
+  to {
+    transform: translateX(-400px);
+    /* transform: scale(0); */
+  }
+}
+
+.vailederrortitle {
+  position: absolute;
+  color: red;
+  font-size: 14px;
+  padding: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 190px;
+  margin: 0px;
+  text-align: center;
+  animation: error 1.5s;
+  width: 100%;
+}
+
+@keyframes error {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* .box {
+  border: solid 1px red;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 50px auto;
+  width: 50%;
+}
+.maintxt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px red;
+  text-align: center;
+}
+.btngo {
+  height: 50px;
+  cursor: pointer;
+} */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(farthest-side, #faf884 94%, #0000) top/8px 8px
+      no-repeat,
+    conic-gradient(#0000 30%, #faf884);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+.card-added-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  text-align: center;
+  color: rgb(5, 90, 5);
+}
+
+.amount {
+  margin: 0px;
+  padding: 0px;
+  color: black;
+  margin-bottom: 30px;
+}
+.withdrav-wrapper {
+  z-index: 5000 !important;
+}
+.withdraw-btn {
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 5px 1px black;
+  background-color: rgb(5, 90, 5);
+  cursor: pointer;
+  transition: 0.4s;
+  font-family: "DynaPuff", system-ui;
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.withdraw-btn:hover {
+  background-color: rgb(30, 155, 30);
+}
+
+.trans-final {
+  text-align: center;
+  color: rgb(5, 90, 5);
+  font-size: 20px;
+}
+
+.hidanim {
+  animation: 1s hidanim;
+}
+
+@keyframes hidanim {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.wievanim {
+  animation: 1s wievanim;
+}
+
+@keyframes wievanim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cardnumber,
+.cardname,
+.carddata,
+.cardcvv,
+::placeholder {
+  color: black;
+}
