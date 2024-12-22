@@ -94,28 +94,54 @@ body {
   grid-template-columns: 1fr;
   place-items: center;
 }
+.logopp {
+  width: 30px;
+  height: 30px;
+  margin: 20px auto;
+}
+.login,
+.password {
+  width: 80%;
+  height: 50px;
+  margin: 5px auto;
+  border-radius: 5px;
+  border: solid 1px rgba(128, 128, 128, 0.649) !important;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 12px;
+}
+.login::placeholder,
+.password::placeholder {
+  color: rgb(85, 84, 84);
+}
+
+.login:hover {
+  box-shadow: 0px 0px 1px 1px #002991;
+}
+.password:hover {
+  box-shadow: 0px 0px 1px 1px #002991;
+}
 
 .content-second {
   position: relative;
   width: 80%;
-  height: 150px;
+  height: 320px;
   z-index: 100;
-  display: grid;
-  grid-template-columns: 1fr;
-  place-items: center;
   box-shadow: 1px 1px 40px 5px black;
-  padding: 10px;
   border-radius: 10px;
-  gap: 5px;
   transition: 0.4s;
   animation: zoom 1s;
-  background: rgb(150, 147, 204);
-  background: linear-gradient(
-    90deg,
-    rgba(150, 147, 204, 0.30015756302521013) 0%,
-    rgba(9, 121, 105, 0.22172619047619047) 35%,
-    rgba(101, 231, 205, 1) 100%
-  );
+  background-color: white;
+}
+.forgotwrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+.forgot-title {
+  color: #0070e0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
 }
 .content-second input {
   border: none;
@@ -147,27 +173,57 @@ body {
   grid-template-columns: 1fr;
 }
 .buttonwrapper {
-  position: absolute;
   top: 220px;
   z-index: 400;
+  width: 80%;
+  margin: 0 auto !important;
 }
 .accept {
-  width: 80px;
+  width: 100%;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 20px;
   border: none;
-  box-shadow: 1px 1px 5px 1px black;
-  background-color: #f6ef6a;
+  background-color: #0551b5;
+  color: white;
   cursor: pointer;
   transition: 0.4s;
-  font-family: "DynaPuff", system-ui;
-  font-weight: 100;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 15px;
   text-decoration: none;
 }
+.reqimg {
+  width: 35px;
+}
+.requiredpasswordwrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  padding-right: 30px;
+  height: 15px;
+}
+.requiredwrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  padding-right: 30px;
+  height: 15px;
+}
+.userrequired {
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(60, 60, 60);
+  margin: 0px;
+  padding: 0px;
+}
 .accept:hover {
-  background-color: #be8a30;
-  color: white;
-  box-shadow: 1px 1px 5px 1px #faf683;
+  background-color: #0070e0;
 }
 
 .cardnumbertitle {
